@@ -9,7 +9,7 @@ write_kernver(){
 
 # gotta make this really complicated because TPMC doesn't like when I try to read the full index on GRUNT BARLA....
 read_kernver(){
-  case $kernver in
+  case $Spoobver in
     "0")
       cat /mnt/state/kvs/kernver0
       ;;

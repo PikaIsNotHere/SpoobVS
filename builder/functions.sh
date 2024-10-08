@@ -152,7 +152,7 @@ format_bytes() {
 
 
 create_stateful(){
-  log "Creating KVS/Stateful Partition"
+  log "Creating SpoobVS/Stateful Partition"
   local final_sector=$(get_final_sector "$LOOPDEV")
   local sector_size=$(get_sector_size "$LOOPDEV")
   # special UUID is from grunt shim, dunno if this is different on other shims
@@ -163,7 +163,7 @@ create_stateful(){
 }
 
 inject_stateful(){
-  log "Injecting KVS/Stateful Partition"
+  log "Injecting SpoobVS/Stateful Partition"
   
   echo "Mounting stateful.."
   mount "$LOOPDEV"p1 "$STATE_MNT"

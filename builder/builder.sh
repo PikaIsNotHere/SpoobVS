@@ -14,7 +14,7 @@ fi
 
 source $SCRIPT_DIR/functions.sh
 
-echo "KVS Shim Builder v$VERSION"
+echo "SpoobVS Shim Builder v$VERSION"
 echo "-=-=-=-=-=-=-=-=-=-"
 echo "gdisk, e2fsprogs required. must be ran as root"
 echo "-=-=-=-=-=-=-=-=-=-"
@@ -81,5 +81,5 @@ safesync
 truncate_image "$IMG"
 safesync
 
-log "Done building KVS!"
+log "Done building SpoobVS!"
 trap - EXIT

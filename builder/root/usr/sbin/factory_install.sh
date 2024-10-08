@@ -1,7 +1,9 @@
 #!/bin/bash
 # KVS: Kernel Version Switcher
 # Written by kxtzownsu / kxtz#8161
+# Adapted to spoob by Pika / Orphanic
 # https://kxtz.dev
+# https://im.scaredofwo.men
 # Licensed under GNU Affero GPL v3
 
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
@@ -10,7 +12,7 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 version=1
-GITHUB_URL="https://github.com/kxtzownsu/KVS"
+GITHUB_URL="https://github.com/pikaisnothere/SpoobVS"
 tpmver=$(tpmc tpmver)
 
 if [ "$tpmver" == "2.0" ]; then
@@ -19,22 +21,22 @@ else
   tpmdaemon="tscd"
 fi
 
-# give me thy kernver NOW
-case "$(crossystem tpm_kernver)" in
+# give me thy Spoobver NOW
+case "$(crossystem tpm_Spoobver)" in
   "0x00000000")
-    kernver="0"
+    Spoobver="0"
     ;;
   "0x00010001")
-    kernver="1"
+    Spoobver="1"
     ;;
   "0x00010002")
-    kernver="2"
+    Spoobver="2"
     ;;
   "0x00010003")
-    kernver="3"
+    Spoobver="3"
     ;;
   *)
-    panic "invalid-kernver"
+    panic "invalid-Spoobver"
     ;;
 esac
 
@@ -56,21 +58,22 @@ elif [ "$(crossystem mainfw_type)" == "developer" ]; then
   . ../share/kvs/tpmutil.sh
   source ../share/kvs/functions.sh
   source ../share/kvs/tpmutil.sh
-  style_text "YOU ARE RUNNING A DEBUG VERSION OF KVS, THIS WAS OPTIMIZED TO RUN ON CHROMEOS ONLY! ALL ACTIONS ARE PURELY VISUAL AND NOT FUNCTIONAL IN THIS MODE!!!"
+  style_text "YOU ARE RUNNING A DEBUG VERSION OF SPOOBVS, THIS WAS OPTIMIZED TO RUN ON CHROMEOS ONLY! ALL ACTIONS ARE PURELY VISUAL AND NOT FUNCTIONAL IN THIS MODE!!!"
   sleep 5
   clear
 fi
 
 credits(){
   clear
-  echo "KVS: Kernel Version Switcher v$version"
-  echo "Current kernver: $kernver"
+  echo "SpoobVS: Spoob Version Switcher v$version"
+  echo "Current Spoobver: $Spoobver"
   echo "TPM Version: $tpmver"
   echo "TPMD: $tpmdaemon"
   echo "-=-=-=-=-=-=-=-=-=-=-"
-  echo "kxtzownsu - Writing KVS, Providing kernver 0 & kernver 1 files."
-  echo "planetearth1363 - Providing kernver 2 files."
-  echo "miimaker - Providing kernver 3 files."
+  echo "kxtzownsu - Writing KVS, Providing Spoobver 0 & Spoobver 1 files."
+  echo "orphanic - Adapting to succumb to the spoob >:)
+  echo "planetearth1363 - Providing Spoobver 2 files."
+  echo "miimaker - Providing Spoobver 3 files."
   echo "OlyB - Helping me figure out the shim builder, seriously, thanks."
   echo "Google - Writing the 'tpmc' command :3"
   echo "-=-=-=-=-=-=-=-=-=-=-"
@@ -85,16 +88,17 @@ endkvs(){
 
 
 main(){
-  echo "KVS: Kernel Version Switcher v$version"
-  echo "Current kernver: $kernver"
+  echo "SpoobVS: Spoob Version Switcher v$version"
+  echo "Current Spoobver: $Spoobver"
   echo "TPM Version: $tpmver"
   echo "TPMD: $tpmdaemon"
   echo "-=-=-=-=-=-=-=-=-=-=-"
-  echo "1) Set New kernver"
-  echo "2) Backup kernver"
+  echo "1) Set New Spoobver"
+  echo "2) Backup Spoobver"
   echo "3) Bash Shell"
   echo "4) Credits"
   echo "5) Exit"
+  echo "S) View The Spoob"
   printf '\x1b[?25h'
   read -rep "$(printf '\x1b[?25h')> " sel
   
